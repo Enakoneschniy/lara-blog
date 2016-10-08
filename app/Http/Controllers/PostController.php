@@ -10,7 +10,7 @@ use App\Models\Post;
 class PostController extends Controller
 {
     public function index(Post $post){
-        $data = $post->all();
+        $data = $post->paginate(5);
         return view('post.list', ['posts' => $data]);
     }
 
