@@ -1,16 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-    @foreach($posts as $post)
-        <div class="col-md-12">
-            <a href="#">
-                <h3>{{$post->title}}</h3>
-            </a>
-            <div>
-                {!! $post->preview_text !!}
-            </div>
-        </div>
-        <hr>
-    @endforeach
+    <h1 class="page-header">Posts list</h1>
+    <ul class="media-list">
+        @foreach($posts as $post)
+            <li class="media">
+                <div class="media-body">
+                    <a href="{{url('/posts',$post->id)}}">
+                        <h2 class="media-heading">{{$post->title}}</h2>
+                    </a>
+                    {{$post->preview_text}}
+                    <div class="social col-md-2 col-md-offset-10">
+                        <div class="pull-right">
+                            <button class="btn btn-success btn-xs like">Like</button>
+                            <button class="btn btn-primary btn-xs share">Share</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        @endforeach
+    </ul>
     {{$posts->links()}}
 @endsection

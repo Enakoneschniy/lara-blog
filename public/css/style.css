@@ -1,0 +1,16 @@
+.media-list .media{
+    border-bottom: 1px solid #cacaca;
+    padding-bottom: 20px;
+}
+
+a{
+    color: #000000;
+}
+
+a:hover{
+    text-decoration: none;
+}
+.social{
+    padding-right: 0;
+    padding-top: 10px;
+}
