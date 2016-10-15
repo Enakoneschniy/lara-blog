@@ -16,6 +16,12 @@ class PostController extends Controller
 
     public function post($id){
         $post = Post::find($id);
+
         return view('post.detail', ['post' => $post]);
+    }
+
+    public function like(Request $req){
+        $postId = $req->get('post_id');
+        return json_encode(['likes' => 10]);
     }
 }

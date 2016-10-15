@@ -12,8 +12,10 @@
                     {{$post->preview_text}}
                     <div class="social col-md-2 col-md-offset-10">
                         <div class="pull-right">
-                            <button class="btn btn-success btn-xs like">Like</button>
-                            <button class="btn btn-primary btn-xs share">Share</button>
+                            <button id="{{$post->id}}" class="btn btn-primary btn-xs like">
+                                Like
+                                <span class="badge">{{$post->likes}}</span>
+                            </button>
                         </div>
                     </div>
                 </div>
