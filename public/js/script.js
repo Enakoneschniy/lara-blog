@@ -15,6 +15,9 @@ $(function () {
             },
             success: function(response){
                 $('#'+postId).find('.badge').html(response.likes);
+                if(response.message){
+                    alert(response.message);
+                }
             }
         });
     });
