@@ -11,8 +11,16 @@ use DB;
 
 class PostController extends Controller
 {
+    public function main(Post $post){
+        $data = $post
+                ->orderBy('id','desc')
+                ->take(3)
+                ->get();
+        return view('welcome', ['posts' => $data]);
+    }
+
     public function index(Post $post){
-        $data = $post->paginate(5);
+        $data = $post->orderBy('id', 'desc')->paginate(5);
         return view('post.list', ['posts' => $data]);
     }
 
