@@ -37,14 +37,16 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'Laravel Blog') }}
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        &nbsp;@foreach($menu as $item)
+                            <li><a href="{{$item->url}}">{{$item->title}}</a></li>
+                         @endforeach
                     </ul>
 
                     <!-- Right Side Of Navbar -->
