@@ -9,24 +9,24 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use DB;
 
-class PostController extends Controller
+class PostController extends MainController
 {
     public function main(Post $post){
-        $data = $post
+        $this->data['posts'] = $post
                 ->orderBy('id','desc')
                 ->take(3)
                 ->get();
-        return view('welcome', ['posts' => $data]);
+        return view('welcome', $this->data);
     }
 
     public function index(Post $post){
-        $data = $post->orderBy('id', 'desc')->paginate(5);
-        return view('post.list', ['posts' => $data]);
+        $this->data['posts'] = $post->orderBy('id', 'desc')->paginate(5);
+        return view('post.list', $this->data);
     }
 
     public function post($id){
-        $post = Post::find($id);
-        return view('post.detail', ['post' => $post]);
+        $this->data['post'] = Post::find($id);
+        return view('post.detail', $this->data);
     }
 
     public function like(Request $req){
